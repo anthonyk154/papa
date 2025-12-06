@@ -1,0 +1,381 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #0d1b3d, #162a56, #0d1b3d);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    padding: 90px 20px;
+    animation: fadeUp 1.5s ease-out;
+}
+
+.glow-text {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    animation: neonGlow 2s infinite alternate;
+}
+
+.glow-text span {
+    color: #58a6ff;
+}
+
+.sub {
+    margin-top: 10px;
+    opacity: 0.9;
+    font-size: 1.2rem;
+}
+
+
+
+
+@keyframes wobbleFloat {
+    0% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    20% {
+        transform: translateY(-150px) translateX(12px) rotate(3deg);
+    }
+    40% {
+        transform: translateY(-300px) translateX(-10px) rotate(-3deg);
+    }
+    60% {
+        transform: translateY(-450px) translateX(15px) rotate(2deg);
+    }
+    80% {
+        transform: translateY(-600px) translateX(-12px) rotate(-2deg);
+    }
+    100% {
+        transform: translateY(-800px) translateX(0px) rotate(0deg);
+    }
+}
+
+
+
+
+/* GALLERY */
+.gallery {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+    text-shadow: 0px 0px 12px #6bb9ff;
+}
+
+.card-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    transform: scale(0.9);
+    animation: popIn 1s forwards;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+/* MESSAGE SECTION */
+.message {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.msg {
+    max-width: 700px;
+    margin: auto;
+    font-size: 1.3rem;
+    line-height: 1.7rem;
+    opacity: 0;
+    animation: fadeUp 1.6s forwards;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    opacity: 0.6;
+}
+
+/* ANIMATIONS */
+@keyframes floatUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-900px); }
+}
+
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 10px #4eaaff; }
+    100% { text-shadow: 0 0 25px #4eaaff, 0 0 45px #4eaaff; }
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+/* ---------------- FLOATING STARS ---------------- */
+#star-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* ---------------- SCROLL ARROW ---------------- */
+.scroll-arrow {
+    font-size: 3rem;
+    margin-top: 40px;
+    animation: bounceArrow 1.3s infinite;
+    opacity: 0.8;
+}
+@keyframes bounceArrow {
+    0%, 100% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(10px); opacity: 1; }
+}
+
+/* ---------------- TOP BANNER ---------------- */
+.top-banner {
+    width: 100%;
+    text-align: center;
+    background: #4e8cff;
+    padding: 12px;
+    font-size: 1.2rem;
+    color: white;
+    position: fixed;
+    top: -60px;
+    left: 0;
+    animation: slideDown 1s forwards ease-out;
+    z-index: 99;
+}
+@keyframes slideDown {
+    to { top: 0; }
+}
+
+/* ---------------- TIMELINE ---------------- */
+.timeline {
+    padding: 60px 20px;
+    position: relative;
+}
+.timeline-line {
+    width: 4px;
+    background: #4ea3ff;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+.timeline-item {
+    margin: 40px 0;
+    text-align: center;
+}
+.timeline-item .year {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #58a6ff;
+}
+
+/* ---------------- LIGHTBOX ---------------- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+.lightbox.hidden { display: none; }
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #4eaaff;
+}
+/* MOVING STAR STYLE */
+.star-move {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px white;
+}
+/* Moving star style (blue + white) */
+.star-move {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hero, .section-title, .msg, footer {
+    position: relative;
+    z-index: 5; /* above balloons */
+}
+/* ----------- TIMELINE SECTION (Centered) ----------- */
+.timeline {
+    padding: 60px 20px;
+    text-align: center;      /* centers all text */
+    position: relative;
+}
+
+.timeline-line {
+    width: 4px;
+    background: #4ea3ff;
+    height: 100%;
+    position: absolute;
+    left: 50%;               /* centers vertical line */
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+
+.timeline-item {
+    margin: 40px 0;
+    width: 100%;
+    text-align: center;       /* ensures text stays centered */
+}
+
+.timeline-item .year {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #58a6ff;
+    margin-bottom: 10px;
+}
+/* Base style for all music buttons */
+#playSound,
+#pauseSound,
+#playFav,
+#pauseFav {
+    display: block;              /* makes them stack vertically */
+    margin: 10px auto 0;         /* center horizontally, add space on top */
+    padding: 12px 20px;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s;
+}
+
+/* Play buttons: brighter blues */
+#playSound,
+#playFav {
+    background: #4e8cff;
+}
+
+#playFav {
+    background: #58d4ff;         /* slightly lighter for fav */
+}
+
+/* Pause buttons: darker blue */
+#pauseSound,
+#pauseFav {
+    background: #1f2a4d;
+}
+
+/* Hover effect */
+#playSound:hover,
+#pauseSound:hover,
+#playFav:hover,
+#pauseFav:hover {
+    transform: scale(1.08);
+}
+@media (max-width: 600px) {
+    canvas {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+}
+/* ---------------- MOBILE RESPONSIVE FIXES ---------------- */
+@media (max-width: 600px) {
+
+    /* HERO TEXT */
+    .glow-text {
+        font-size: 2rem;     /* smaller but bold */
+        line-height: 1.2;
+    }
+
+    .sub {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* BUTTONS */
+    #playFav,
+    #playSound {
+        width: 90%;            /* full width buttons */
+        font-size: 1rem;
+        padding: 14px;
+        margin-top: 12px;
+        border-radius: 12px;
+    }
+
+    /* SCROLL ARROW */
+    .scroll-arrow {
+        font-size: 2.3rem;
+        margin-top: 20px;
+    }
+
+    /* GALLERY GRID */
+    .card-grid {
+        grid-template-columns: 1fr;   /* one picture per row */
+        gap: 18px;
+        padding: 0 10px;
+    }
+
+    .card img {
+        border-radius: 12px;
+        width: 100%;
+    }
+
+    /* TIMELINE */
+    .timeline-line {
+        left: 12px;   /* move line to left for mobile */
+    }
+
+    .timeline-item {
+        text-align: left;
+        padding-left: 35px;
+    }
+
+    .timeline-item .year {
+        font-size: 1.4rem;
+    }
+
+    /* MESSAGE TEXT */
+    .msg {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding: 0 10px;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding-bottom: 50px; /* prevent text from touching screen bottom */
+    }
+}
